@@ -5,10 +5,10 @@ atual = date.today().year
 nome = str(input("Digite seu nome completo: "))
 idade = int(input("Digite sua idade: "))
 def formatar_cpf(cpf_digitado):
-    # Remova todos os caracteres não numéricos do CPF
+    
     cpf_digitado = ''.join(c for c in cpf_digitado if c.isdigit())
 
-    # Adicione os pontos à medida que o usuário digita
+   
     if len(cpf_digitado) >= 3:
         cpf_formatado = cpf_digitado[:3] + '.'
     else:
@@ -56,12 +56,6 @@ while len(telefone) < 8:
     telefone = input("Digite seu telefone (apenas números): ")
     telefone_formatado = formata_telefone(telefone)
 
-
-
-
-
-
-
 civil = int(input("""
 Qual e o seu estado civil:
 1° Solteiro
@@ -82,8 +76,11 @@ Qual e a sua escolaridade:
 7° Outros Cursos
 """))
 profissao = str(input("Digite sua profissão: "))
-saude = str(input("Possui algum problema de saude [S/N]: ")).lower()
 
+
+saude = str(input("Possui algum problema de saúde [S/N]: ")).lower()
+while saude not in "SsNn":
+    saude = str(input("ERROR. Você possui algum problema de saúde?"))
 
 nascimento = atual - idade
 anolist = nascimento + 18
@@ -144,12 +141,9 @@ elif escolar == 7:
     
 print("Profissão: ", profissao)
 
-
-
-
 if saude == "s":
     print("Possui problema de saúde")
 elif saude == "n":
     print("Não possui problema de saúde")
-else: 
-    print("Error")
+
+      
